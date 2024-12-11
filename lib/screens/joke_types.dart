@@ -12,7 +12,7 @@ class JokeTypesScreen extends StatelessWidget {
         title: const Text('Joke Types'),
         actions: [
           IconButton(
-            icon: const Icon(Icons.shuffle),
+            icon: const Icon(Icons.emoji_emotions),
             onPressed: () {
               Navigator.pushNamed(context, '/random');
             },

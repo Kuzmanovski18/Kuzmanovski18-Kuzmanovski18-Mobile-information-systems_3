@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/joke_types.dart';
+import 'screens/random_joke.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,6 +16,9 @@ class MyApp extends StatelessWidget {
       title: 'Random Jokes App',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: const JokeTypesScreen(),
+      routes: {
+        '/random': (context) => const RandomJokeScreen(),
+      },
     );
   }
 }

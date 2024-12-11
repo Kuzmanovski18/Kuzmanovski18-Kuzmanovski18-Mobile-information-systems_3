@@ -25,13 +25,29 @@ class RandomJokeScreen extends StatelessWidget {
           final joke = snapshot.data!;
           return Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(joke.setup, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                const SizedBox(height: 10),
-                Text(joke.punchline, style: const TextStyle(fontSize: 16)),
-              ],
+            child: Center( // Центрирање на целиот текст
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center, // Вертикално центрирање
+                crossAxisAlignment: CrossAxisAlignment.center, // Хоризонтално центрирање
+                children: [
+                  Text(
+                    joke.setup,
+                    textAlign: TextAlign.center, // Центрирање текст во рамките на редот
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    joke.punchline,
+                    textAlign: TextAlign.center, // Центрирање текст во рамките на редот
+                    style: const TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
+              ),
             ),
           );
         },
