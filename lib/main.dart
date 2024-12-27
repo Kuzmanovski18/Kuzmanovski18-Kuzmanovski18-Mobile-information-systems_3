@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'screens/joke_types.dart';
 import 'screens/random_joke.dart';
+import 'screens/favorite_jokes.dart';
+import 'models/joke.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'services/NotificationService.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  await NotificationService().initialize();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +28,10 @@ class MyApp extends StatelessWidget {
       home: const JokeTypesScreen(),
       routes: {
         '/random': (context) => const RandomJokeScreen(),
+        '/favorites': (context) => FavoriteJokesScreen(favoriteJokes: favoriteJokes),
       },
     );
   }
 }
+
+List<Joke> favoriteJokes = [];

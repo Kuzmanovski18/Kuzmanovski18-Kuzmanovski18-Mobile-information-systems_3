@@ -3,7 +3,7 @@ import '../services/api_services.dart';
 import 'jokes_by_type.dart';
 
 class JokeTypesScreen extends StatelessWidget {
-  const JokeTypesScreen({Key? key}) : super(key: key);
+  const JokeTypesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +11,12 @@ class JokeTypesScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Joke Types'),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.favorite),
+            onPressed: () {
+              Navigator.pushNamed(context, '/favorites');
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.emoji_emotions),
             onPressed: () {
